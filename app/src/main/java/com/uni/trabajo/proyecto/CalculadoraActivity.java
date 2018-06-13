@@ -28,20 +28,7 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculadora);
 
-        fabAbout=(FloatingActionButton)findViewById(R.id.floatingAbout);
-        fabAbout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Intent intetCalcu = new Intent(CalculadoraActivity.this,MainActivity.class);
-                //startActivity(intetCalcu);
 
-               /* AboutDialogfragment aboutDialogfragment=new AboutDialogfragment();
-               aboutDialogfragment.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
-                aboutDialogfragment.show(getSupportFragmentManager(),"About");*/
-
-
-            }
-        });
 
         txtOperador=(TextView)findViewById(R.id.txtOperador);
         textViewResult=(TextView)findViewById(R.id.texviewResult);

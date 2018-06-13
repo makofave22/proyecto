@@ -3,4 +3,12 @@
     <string name="title_activity_calculadora">Calculadora</string>
     <string name="title_activity_main3_add_user">Main3ActivityAddUser</string>
     <string name="title_activity_clientes">Clientes</string>
+    <string name="title_activity_main_principal">MainPrincipalActivity</string>
+    <string name="title_menu_principal">Principal</string>
+    <string name="title_menu_calculadora">Calculadora</string>
+    <string name="title_menu_about">About</string>
+    <string name="title_menu_scanner">Scanner</string>
+
+    <string name="title_Clientes">Clientes</string>
+
 </resources>

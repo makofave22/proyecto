@@ -1,10 +1,12 @@
 package com.uni.trabajo.proyecto.Clases;
 
 import android.content.Context;
+import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,12 +23,14 @@ public class AdapterClientes extends RecyclerView.Adapter<AdapterClientes.ViewHo
 
     private Context context;
     private List<Clientes> my_data;
+    DataBaseManager manager;
 
     public AdapterClientes(Context context, List<Clientes> my_data) {
         this.context = context;
         this.my_data = my_data;
+        manager=new DataBaseManager(context);
 
-        Toast.makeText(context,"Tamaño de lista: "+my_data.size(),Toast.LENGTH_SHORT).show();
+       // Toast.makeText(context,"Tamaño de lista: "+my_data.size(),Toast.LENGTH_SHORT).show();
 
     }
     @Override
@@ -43,10 +47,18 @@ public class AdapterClientes extends RecyclerView.Adapter<AdapterClientes.ViewHo
         Toast.makeText(context,"Tamaño de lista: "+my_data.size(),Toast.LENGTH_SHORT).show();
     }
 
+    public void update()
+    {
+        my_data.clear();
+
+        my_data=manager.clientes();
+        notifyDataSetChanged();
+    }
+
     @Override
     public void onBindViewHolder(ViewHolder holder, int position)
     {
-        Toast.makeText(context,"Posision: "+position,Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(context,"Posision: "+position,Toast.LENGTH_SHORT).show();
         holder.idCliente.setText(""+my_data.get(position).getId());
         holder.nameClientes.setText(""+my_data.get(position).getNombre());
         holder.apellidoCliente.setText(""+my_data.get(position).getApellido());
@@ -63,6 +75,7 @@ public class AdapterClientes extends RecyclerView.Adapter<AdapterClientes.ViewHo
     public class ViewHolder extends  RecyclerView.ViewHolder
     {
         TextView idCliente,nameClientes,direccion,correo,apellidoCliente;
+        ImageButton delete;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -72,6 +85,15 @@ public class AdapterClientes extends RecyclerView.Adapter<AdapterClientes.ViewHo
             direccion=(TextView)itemView.findViewById(R.id.txtDireccion);
             correo=(TextView)itemView.findViewById(R.id.txtCorreo);
             apellidoCliente=(TextView)itemView.findViewById(R.id.txtApellido);
+            delete=(ImageButton)itemView.findViewById(R.id.imageButtonDelete);
+
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    manager.eliminarClientes(my_data.get(getPosition()).getId());
+                    update();
+                }
+            });
         }
     }
 }

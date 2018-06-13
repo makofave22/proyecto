@@ -2,17 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.uni.trabajo.proyecto">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/title_Clientes"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
         <activity
             android:name=".Main2Activity"
-            android:noHistory="true"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,10 +29,26 @@
             android:label="@string/title_activity_main3_add_user"
             android:theme="@style/AppTheme" />
         <activity
+            android:name=".GraficaActivity"
+            android:label="@string/title_activity_main3_add_user"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name=".CalculadoraActivity"
             android:label="@string/title_activity_clientes"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".SccannerActivity"
+            android:label="@string/title_activity_main_principal"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".WebActivity"
+            android:label="@string/title_activity_main_principal"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".MainPrincipalActivity"
+            android:label="@string/title_activity_main_principal"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

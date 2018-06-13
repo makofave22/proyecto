@@ -82,11 +82,11 @@ public class DataBaseManager
         }catch (Exception e){
             // Toast.makeText(contexto, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-
-
-
-
         return clientesList;
+    }
+    public void eliminarClientes(String id)
+    {
+        db.execSQL("DELETE FROM "+TABLE_CLIENTES+" WHERE "+ID_CLIENTE+"="+id);
     }
 
 
